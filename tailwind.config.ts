@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -24,6 +25,14 @@ export default {
 				ring: 'hsl(var(--ring))',
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
+				neon: {
+					DEFAULT: '#ceff00',
+					hover: '#daff33',
+				},
+				dark: {
+					DEFAULT: '#111217',
+					lighter: '#1a1b21',
+				},
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
 					foreground: 'hsl(var(--primary-foreground))'
@@ -70,26 +79,44 @@ export default {
 			},
 			keyframes: {
 				'accordion-down': {
-					from: {
-						height: '0'
-					},
-					to: {
-						height: 'var(--radix-accordion-content-height)'
-					}
+					from: { height: '0' },
+					to: { height: 'var(--radix-accordion-content-height)' },
 				},
 				'accordion-up': {
-					from: {
-						height: 'var(--radix-accordion-content-height)'
-					},
-					to: {
-						height: '0'
-					}
-				}
+					from: { height: 'var(--radix-accordion-content-height)' },
+					to: { height: '0' },
+				},
+				'glow': {
+					'0%': { opacity: '0.6' },
+					'50%': { opacity: '1' },
+					'100%': { opacity: '0.6' }
+				},
+				'float': {
+					'0%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-10px)' },
+					'100%': { transform: 'translateY(0)' }
+				},
+				'pulse-neon': {
+					'0%, 100%': { boxShadow: '0 0 25px 5px rgba(206, 255, 0, 0.6)' },
+					'50%': { boxShadow: '0 0 25px 5px rgba(206, 255, 0, 0.3)' }
+				},
+				'spiral-spin': {
+					'0%': { transform: 'rotate(0deg) scale(1)' },
+					'100%': { transform: 'rotate(360deg) scale(1)' }
+				},
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
-			}
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'glow': 'glow 3s ease-in-out infinite',
+				'float': 'float 6s ease-in-out infinite',
+				'pulse-neon': 'pulse-neon 2s infinite',
+				'spiral-spin': 'spiral-spin 10s linear infinite',
+			},
+			fontFamily: {
+				sans: ['Inter', 'sans-serif'],
+				'display': ['Montserrat', 'sans-serif'],
+			},
 		}
 	},
 	plugins: [require("tailwindcss-animate")],
